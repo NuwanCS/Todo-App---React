@@ -1,0 +1,26 @@
+import React from "react";
+import "./listItems.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+function ListItems(props) {
+  const items = props.items;
+  const ListItems = items.map((item) => {
+    return (
+      <div className="list" key={item.key}>
+        <p>
+          {item.text}
+          <span>
+            <FontAwesomeIcon
+              className="faicons"
+              icon="trash"
+              onClick={() => props.deleteItem(item.key)}
+            />
+          </span>
+        </p>
+      </div>
+    );
+  });
+  return <div>{ListItems}</div>;
+}
+
+export default ListItems;
